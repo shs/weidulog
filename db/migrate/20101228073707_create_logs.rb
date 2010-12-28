@@ -3,7 +3,7 @@ class CreateLogs < ActiveRecord::Migration
     create_table :logs do |t|
       t.string :author
       t.references :game
-
+      t.boolean :bwp
       t.timestamps
     end
   end
