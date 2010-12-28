@@ -1,0 +1,432 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, font, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100.01%;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+
+blockquote, q {
+  quotes: "" "";
+}
+
+fieldset {
+  padding: .5em;
+}
+
+select option {
+  padding: 0 5px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.nofloat {
+  float: none !important;
+}
+
+.clear {
+  clear: both;
+  height: 1px;
+  font-size: 1px;
+  line-height: 1px;
+  visibility: hidden;
+}
+
+.clear2 {
+  clear: both;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  display: none;
+}
+
+a img {
+  border: none;
+}
+
+.middle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*==============================
+GLOBALS
+Sets the default document font size, family
+and color
+===============================*/
+body
+{
+    font-family: Verdana;
+    font-size: 12px;
+    color: #545454;
+    background: url('../images/wl_bg.jpg');
+    text-align: center; /* for IE */
+}  
+
+h1
+{
+    font-size:48px;
+    margin-right: 17px;
+    text-align: right;
+}
+
+h2
+{
+    font-size:18px;
+    text-align: left;
+}
+
+/*
+a:link img{border: 0px ; }
+a:active img{border: 0px ; }
+a:visited img{border: 0px ; }
+a:hover img{border: 0px ; }
+a:link {color: #a9b261; text-decoration: none; }
+a:active {color: #a9b261; text-decoration: none; }
+a:visited {color: #a9b261; text-decoration: none; }
+a:hover {color: #a9b261; text-decoration: none; }
+*/
+
+/*==============================
+TOP BAR
+===============================*/
+#topbar
+{
+    width: 100%;
+    height: 20px;
+    background: url('../images/top_bar.png');
+}
+
+/*==============================
+WRAPPER
+===============================*/
+#wrapper
+{
+    width: 872px;
+    min-height: 500px;
+    margin-left:auto;
+    margin-right:auto;
+    margin: 0 auto;   /* align for good browsers */
+    text-align: left; /* counter the body center */
+    background: url('../images/shs_2.jpg') no-repeat -2000px -2000px;
+    background: url('../images/upload2.png') no-repeat -2000px -2000px;
+    background: url('../images/search2.png') no-repeat -2000px -2000px;
+}
+
+/*==============================
+HEADER
+===============================*/
+
+#header
+{
+    width: 872px;
+    height: 68px;
+    text-align:right;
+}
+
+/*==============================
+MENUWRAP
+===============================*/
+#menuwrap
+{
+    width: 872px;
+    height: 26px;
+    background: url('../images/wl_text.png') no-repeat right;
+}
+
+#m_upload
+{
+    background: url('../images/upload.png') no-repeat;
+    width: 140px;
+    height: 26px;
+    float: left;
+}
+
+#m_upload:hover, #m_upload:active
+{
+    background: url('../images/upload2.png') no-repeat;
+}
+
+#m_search
+{
+    background: url('../images/search.png') no-repeat;
+    width: 96px;
+    height: 26px;
+    float: left;
+}
+
+#m_search:hover, #m_search:active
+{
+    background: url('../images/search2.png') no-repeat;
+}
+
+
+
+/*==============================
+MAINTOP
+===============================*/
+#maintop
+{
+    width: 872px;
+    height: 15px;
+    background: url('../images/maintop.png') no-repeat;
+}
+
+/*==============================
+MAIN
+===============================*/
+#main
+{
+    width: 822px;
+    _width: 872px;
+    min-height: 400px;
+    background: url('../images/main.png');
+    padding: 0 25px;
+}
+
+/*=================
+upload log
+==================*/
+#up_left
+{
+/*    border: 1px solid red; */
+    text-align: right;
+    float: left;
+    margin-top: -15px;
+}
+
+#up_middle
+{
+/*    border: 1px solid green; */
+    float: left;
+    margin-left: 35px;
+    margin-top: 21px;
+}
+
+#up_right
+{
+/*    border: 1px solid blue;  */
+    margin-top: 19px;
+    margin-right: 5px;
+    float: right;
+}
+
+#up_bottom
+{
+    clear:both;
+    margin-left: 4px;
+}
+
+#up_submit
+{
+    background: url('../images/up_submit.png') no-repeat;
+    width: 232px;
+    height: 43px;
+    border: 0;
+}
+
+#up_submit:hover
+{
+    background: url('../images/up_submit2.png') no-repeat;
+}
+
+input.text
+{
+    width: 210px;
+}
+
+input.smalltext
+{
+    width: 40px;  
+}
+
+input.file
+{
+    width: 300px;
+}
+
+select
+{
+    width: 215px;
+    _width: 210px;
+}
+
+
+
+/*=================
+search
+==================*/
+
+#search
+{
+    margin-top: -32px;
+}
+
+#results
+{
+    padding: 0 5px;
+}
+
+select.search2
+{
+    width: auto;
+}
+
+#searchtable
+{
+    border: 0px;
+}
+
+#searchtable th
+{
+    padding: 20px 0;
+}
+
+#searchtable td
+{
+    padding: 5px 0;
+}
+
+/*=================
+view log
+==================*/
+
+#viewleft1
+{
+    text-align: right;
+    float: left;
+    margin-top: -30px;
+}
+
+#viewleft2
+{
+    text-align: left;
+    float: left;
+    margin-left: 15px;
+    margin-top: -30px;
+}
+
+#viewcomment
+{
+    float: left;
+    margin-left: 115px;
+    margin-right: 200px;
+    margin-top: -27px;
+}
+
+#edit
+{
+    float: right;
+    margin-top: 25px;
+}
+
+#viewlog
+{
+    clear: both;
+}
+
+
+/*==============================
+MAINBOTTOM
+===============================*/
+#mainbottom
+{
+    width: 872px;
+    height: 20px;
+    background: url('../images/mainbottom.png') no-repeat;
+}
+
+/*==============================
+FOOTER
+===============================*/
+#footer
+{
+    width: 862px;
+    _width: 872px;
+    height: 100px;
+    background: url('../images/main.png') repeat-y;
+    padding: 0 25px;
+}
+
+#footercontent
+{
+
+    float: left;
+}
+
+#shslogo
+{
+    background: url('../images/shs_1.jpg') no-repeat;
+    width: 110px;
+    height: 100px;
+    margin-left: 18px;
+    float: right;
+}
+
+#shslogo:hover
+{
+    background: url('../images/shs_2.jpg') no-repeat;
+}
