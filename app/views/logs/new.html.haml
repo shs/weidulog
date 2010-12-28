@@ -1,0 +1,13 @@
+%h1 Upload log
+= form_for @log, :html => {:multipart => true} do |f|
+  #up_right
+    ReCAPTCHA
+  #up_left
+    %h2 Select log...
+    = f.file_field :file
+    = f.label :game_id, 'Game'
+    = f.select :game_id, Game.all.map{|g| [g.name, g.id]}, :include_blank => true
+    = f.label :author
+    = f.text_field :author
+  #up_bottom
+    = f.submit '', :id => 'up_submit'
