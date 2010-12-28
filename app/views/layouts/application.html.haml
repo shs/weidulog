@@ -15,6 +15,8 @@
         = link_to content_tag(:span, 'Search', :class => 'invisible'), logs_path, :id => 'm_search'
       #maintop
       #main
+        %p.notice= notice
+        %p.alert= alert
         = yield
       #mainbottom
       #maintop
