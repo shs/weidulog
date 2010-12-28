@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Weidulog
+    = stylesheet_link_tag :all
+    =# javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body
+    #topbar
+    #wrapper
+      #header
+        = link_to image_tag('header.png'), root_path
+      #menuwrap
+        = link_to content_tag(:span, 'Upload', :class => 'invisible'), new_log_path, :id => 'm_upload'
+        = link_to content_tag(:span, 'Search', :class => 'invisible'), logs_path, :id => 'm_search'
+      #maintop
+      #main
+        = yield
+      #mainbottom
+      #maintop
+      #footer
+        = link_to content_tag(:span, 'Spellhold Studios', :class => 'invisible'), 'http://www.spellholdstudios.net', :id => 'shslogo'
+        #footercontent
+          %h2 Statistics
+          %p Logs uploaded: #{Log.count}
+          %p Mods catalogued: #{Mod.count}
+      #mainbottom
