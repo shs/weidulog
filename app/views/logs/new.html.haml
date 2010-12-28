@@ -1,7 +1,7 @@
 %h1 Upload log
 = form_for @log, :html => {:multipart => true} do |f|
   #up_right
-    ReCAPTCHA
+    = recaptcha_tags :display => {:theme => 'white', :tabindex => 2}
   #up_left
     %h2 Select log...
     = f.file_field :file
