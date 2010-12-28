@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101228074835) do
+ActiveRecord::Schema.define(:version => 20101228080412) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(:version => 20101228074835) do
     t.boolean  "bwp"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "logs_mod_components", :id => false, :force => true do |t|
+    t.integer "log_id"
+    t.integer "mod_component_id"
   end
 
   create_table "logs_mods", :id => false, :force => true do |t|
