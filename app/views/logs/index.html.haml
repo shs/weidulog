@@ -5,8 +5,8 @@
   %span #{f.submit 'Filter'}
 %table{:style => 'width: 100%'}
   %tr
-    %th Author
-    %th Date
+    %th= link_to_order('author')
+    %th= link_to_order('created_at', 'Date')
     %th # of mods
     %th # of components
     %th Actions
