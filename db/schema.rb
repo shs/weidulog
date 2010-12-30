@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101230064311) do
+ActiveRecord::Schema.define(:version => 20101230064539) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(:version => 20101230064311) do
   end
 
   create_table "mods", :force => true do |t|
-    t.string   "name"
+    t.string   "tp2_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
