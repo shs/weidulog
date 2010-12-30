@@ -5,10 +5,10 @@
   %span #{f.submit 'Filter'}
 %table{:style => 'width: 100%'}
   %tr
-    %th= link_to_order('author')
-    %th= link_to_order('created_at', 'Date')
-    %th= link_to_order('mod_count', '# of mods')
-    %th= link_to_order('mod_component_count', '# of components')
+    %th= link_to_order(:author)
+    %th= link_to_order(:created_at, 'Date')
+    %th= link_to_order(:mod_count, '# of mods')
+    %th= link_to_order(:mod_component_count, '# of components')
     %th Actions
   - @logs.each do |log|
     %tr
