@@ -31,6 +31,6 @@ class Log < ActiveRecord::Base
     end
 
     def calculate_counts
-      update_attributes(:mod_count => mods.count, :mod_component_count => mod_components.count)
+      Log.update_all({:mod_count => mods.count, :mod_component_count => mod_components.count}, {:id => id})
     end
 end
