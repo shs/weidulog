@@ -19,6 +19,7 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
+    @log.content = LogContent.new
 
     respond_to do |format|
       format.html
