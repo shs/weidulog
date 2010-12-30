@@ -1,0 +1,9 @@
+%p
+  %strong Author:
+  = @log.author
+%p
+  %strong Date:
+  = @log.created_at.to_s(:long)
+%p
+  %strong Content:
+%textarea{:style => 'width: 100%; height: 340px; white-space: nowrap;', :readonly => 'readonly'}= @log.content.body
