@@ -7,15 +7,15 @@
   %tr
     %th= link_to_order('author')
     %th= link_to_order('created_at', 'Date')
-    %th # of mods
-    %th # of components
+    %th= link_to_order('mod_count', '# of mods')
+    %th= link_to_order('mod_component_count', '# of components')
     %th Actions
   - @logs.each do |log|
     %tr
       %td= log.author
       %td= log.created_at.to_s(:long)
-      %td= log.mods.count
-      %td= log.mod_components.count
+      %td= log.mod_count
+      %td= log.mod_component_count
       %td= link_to 'View', log_path(log)
 :javascript
   $("#filters_created_at_eq").datepicker({ dateFormat: 'yy-mm-dd' });
