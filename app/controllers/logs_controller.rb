@@ -1,5 +1,8 @@
 class LogsController < ApplicationController
   def index
+    params[:order_by]        ||= 'created_at'
+    params[:order_direction] ||= 'desc'
+
     if filters = params[:filters].try(:dup)
       date = filters.delete(:created_at_eq)
 
@@ -8,9 +11,9 @@ class LogsController < ApplicationController
         filters[:created_at_less_than]    = Time.parse(date).tomorrow.to_s(:db)
       end
 
-      @logs = Log.search(filters).all
+      @logs = Log.order(params[:order_by] + ' ' + params[:order_direction]).search(filters).all
     else
-      @logs = Log.all
+      @logs = Log.order(params[:order_by] + ' ' + params[:order_direction])
     end
 
     respond_to do |format|
