@@ -25,7 +25,7 @@ class Log < ActiveRecord::Base
 
           mods           << mod       unless mod_ids.include?(mod.id)
           mod_components << component unless mod_component_ids.include?(component.id)
-          mod_vesions    << version   unless mod_version_ids.include?(version.id)
+          mod_versions   << version   unless mod_version_ids.include?(version.id)
         end
       end
     end
