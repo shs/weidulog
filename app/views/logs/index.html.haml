@@ -1,3 +1,19 @@
-- @logs.each do |log|
-  %p
-    = link_to "#{log.author} @ #{log.created_at.to_s(:long)}", log_path(log)
+= form_for :filters, :html => {:method => :get} do |f|
+  %span #{f.label :author_contains, 'Author'}: #{f.text_field :author_contains, :value => params[:filters].try(:fetch, :author_contains)}
+  %span #{f.label :created_at_eq, 'Date'}: #{f.text_field :created_at_eq, :value => params[:filters].try(:fetch, :created_at_eq)}
+  %span #{f.label :mods_name_contains, 'Mod'}: #{f.text_field :mods_name_contains, :value => params[:filters].try(:fetch, :mods_name_contains)}
+  %span #{f.submit 'Filter'}
+%table{:style => 'width: 100%'}
+  %tr
+    %th Author
+    %th Date
+    %th # of mods
+    %th # of components
+    %th Actions
+  - @logs.each do |log|
+    %tr
+      %td= log.author
+      %td= log.created_at.to_s(:long)
+      %td= log.mods.count
+      %td= log.mod_components.count
+      %td= link_to 'View', log_path(log)
