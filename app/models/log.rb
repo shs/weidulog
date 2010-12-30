@@ -6,7 +6,7 @@ class Log < ActiveRecord::Base
 
   accepts_nested_attributes_for :content
 
-  after_save :parse_mods
+  after_save :parse_mods, :calculate_counts
 
   private
     def parse_mods
@@ -25,5 +25,9 @@ class Log < ActiveRecord::Base
           mod_components << component unless mod_component_ids.include?(component.id)
         end
       end
+    end
+
+    def calculate_counts
+      update_attributes(:mod_count => mods.count, :mod_component_count => mod_components.count)
     end
 end
