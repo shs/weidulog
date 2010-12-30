@@ -19,11 +19,13 @@ class Log < ActiveRecord::Base
         if matches
           mod_name, component_number, component_label, mod_version = matches[1..4]
 
-          mod       = Mod.find_or_create_by_name_and_version(mod_name, mod_version)
+          mod       = Mod.find_or_create_by_tp2_name(mod_name)
           component = mod.components.find_or_create_by_number_and_label(component_number, component_label)
+          version   = mod.versions.find_or_create_by_number(mod_version)
 
           mods           << mod       unless mod_ids.include?(mod.id)
           mod_components << component unless mod_component_ids.include?(component.id)
+          mod_vesions    << version   unless mod_version_ids.include?(version.id)
         end
       end
     end
