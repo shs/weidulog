@@ -17,3 +17,5 @@
       %td= log.mods.count
       %td= log.mod_components.count
       %td= link_to 'View', log_path(log)
+:javascript
+  $("#filters_created_at_eq").datepicker({ dateFormat: 'yy-mm-dd' });
