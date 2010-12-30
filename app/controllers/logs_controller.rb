@@ -1,6 +1,17 @@
 class LogsController < ApplicationController
   def index
-    @logs = Log.all
+    if filters = params[:filters].try(:dup)
+      date = filters.delete(:created_at_eq)
+
+      unless date.blank?
+        filters[:created_at_greater_than] = Time.parse(date).to_s(:db)
+        filters[:created_at_less_than]    = Time.parse(date).tomorrow.to_s(:db)
+      end
+
+      @logs = Log.search(filters).all
+    else
+      @logs = Log.all
+    end
 
     respond_to do |format|
       format.html
