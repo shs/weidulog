@@ -1,6 +1,9 @@
 class ModsController < ApplicationController
   def index
-    @mods = Mod.order(:name)
+    params[:order_by]        ||= 'name'
+    params[:order_direction] ||= 'asc'
+
+    @mods = Mod.order(params[:order_by] + ' ' + params[:order_direction])
     
     respond_to do |format|
       format.html
