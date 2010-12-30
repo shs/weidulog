@@ -7,6 +7,6 @@ class Mod < ActiveRecord::Base
 
   private
     def guess_name
-      self.name = tp2_name.titleize.gsub('Bg', 'BG')
+      self.name = tp2_name.titleize.gsub('Bg', 'BG') if name.blank?
     end
 end
