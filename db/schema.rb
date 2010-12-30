@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101230064539) do
+ActiveRecord::Schema.define(:version => 20101230065111) do
+
+  create_table "components_logs", :id => false, :force => true do |t|
+    t.integer "log_id"
+    t.integer "component_id"
+  end
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -35,19 +40,14 @@ ActiveRecord::Schema.define(:version => 20101230064539) do
     t.datetime "updated_at"
   end
 
-  create_table "logs_mod_components", :id => false, :force => true do |t|
-    t.integer "log_id"
-    t.integer "component_id"
-  end
-
-  create_table "logs_mod_versions", :id => false, :force => true do |t|
-    t.integer "log_id"
-    t.integer "version_id"
-  end
-
   create_table "logs_mods", :id => false, :force => true do |t|
     t.integer "log_id"
     t.integer "mod_id"
+  end
+
+  create_table "logs_versions", :id => false, :force => true do |t|
+    t.integer "log_id"
+    t.integer "version_id"
   end
 
   create_table "mod_components", :force => true do |t|
