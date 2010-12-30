@@ -9,7 +9,7 @@ class LogsController < ApplicationController
   end
 
   def show
-    @logs = Log.find(params[:id])
+    @log = Log.find(params[:id])
 
     respond_to do |format|
       format.html
