@@ -3,4 +3,6 @@ class Log < ActiveRecord::Base
   has_one :content, :class_name => 'LogContent'
   has_and_belongs_to_many :mods
   has_and_belongs_to_many :mod_components
+
+  accepts_nested_attributes_for :content
 end
