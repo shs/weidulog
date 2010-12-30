@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101230065111) do
+ActiveRecord::Schema.define(:version => 20101230072513) do
 
   create_table "components_logs", :id => false, :force => true do |t|
     t.integer "log_id"
@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(:version => 20101230065111) do
     t.string   "tp2_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "author"
+    t.text     "description"
+    t.string   "website_url"
+    t.string   "forum_url"
   end
 
 end
