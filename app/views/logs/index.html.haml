@@ -1,0 +1,21 @@
+= form_for :filters, :html => {:method => :get} do |f|
+  %span #{f.label :author_contains, 'Author'}: #{f.text_field :author_contains, :value => params[:filters].try(:fetch, :author_contains)}
+  %span #{f.label :created_at_eq, 'Date'}: #{f.text_field :created_at_eq, :value => params[:filters].try(:fetch, :created_at_eq)}
+  %span #{f.label :mods_name_contains, 'Mod'}: #{f.text_field :mods_name_contains, :value => params[:filters].try(:fetch, :mods_name_contains)}
+  %span #{f.submit 'Filter'}
+%table{:style => 'width: 100%'}
+  %tr
+    %th= link_to_order(:author)
+    %th= link_to_order(:created_at, 'Date')
+    %th= link_to_order(:mod_count, '# of mods')
+    %th= link_to_order(:mod_component_count, '# of components')
+    %th Actions
+  - @logs.each do |log|
+    %tr
+      %td= log.author
+      %td= log.created_at.to_s(:long)
+      %td= log.mod_count
+      %td= log.mod_component_count
+      %td= link_to 'View', log_path(log)
+:javascript
+  $("#filters_created_at_eq").datepicker({ dateFormat: 'yy-mm-dd' });

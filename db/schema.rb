@@ -10,10 +10,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101228080412) do
+ActiveRecord::Schema.define(:version => 20101230072513) do
+
+  create_table "components_logs", :id => false, :force => true do |t|
+    t.integer "log_id"
+    t.integer "component_id"
+  end
 
   create_table "games", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "log_contents", :force => true do |t|
+    t.integer  "log_id"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,18 +34,20 @@ ActiveRecord::Schema.define(:version => 20101228080412) do
     t.string   "author"
     t.integer  "game_id"
     t.boolean  "bwp"
+    t.integer  "mod_count"
+    t.integer  "mod_component_count"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "logs_mod_components", :id => false, :force => true do |t|
-    t.integer "log_id"
-    t.integer "mod_component_id"
   end
 
   create_table "logs_mods", :id => false, :force => true do |t|
     t.integer "log_id"
     t.integer "mod_id"
+  end
+
+  create_table "logs_versions", :id => false, :force => true do |t|
+    t.integer "log_id"
+    t.integer "version_id"
   end
 
   create_table "mod_components", :force => true do |t|
@@ -44,11 +58,22 @@ ActiveRecord::Schema.define(:version => 20101228080412) do
     t.datetime "updated_at"
   end
 
-  create_table "mods", :force => true do |t|
-    t.string   "name"
-    t.string   "version"
+  create_table "mod_versions", :force => true do |t|
+    t.integer  "mod_id"
+    t.string   "number"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "mods", :force => true do |t|
+    t.string   "tp2_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "author"
+    t.text     "description"
+    t.string   "website_url"
+    t.string   "forum_url"
   end
 
 end

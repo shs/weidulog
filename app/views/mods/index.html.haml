@@ -1,0 +1,8 @@
+%table{:style => 'width: 100%'}
+  %tr
+    %th= link_to_order(:name)
+    %th Actions
+  - @mods.each do |mod|
+    %tr
+      %td= mod.name
+      %td= link_to 'View', mod_path(mod)
