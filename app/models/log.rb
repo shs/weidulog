@@ -14,7 +14,7 @@ class Log < ActiveRecord::Base
       mods.clear
 
       content.body.each_line do |line|
-        matches = line.match(/^~(?:(?:.+?)\/)?(?:SETUP-)?(.+?)\.TP2~\s#\d+\s#(\d+)\s\/\/\s(.+?)(?::\sv?([\d\.]+)\s?)?$/)
+        matches = line.match(content.regex)
 
         if matches
           mod_name, component_number, component_label, mod_version = matches[1..4]
