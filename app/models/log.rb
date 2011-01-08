@@ -10,7 +10,6 @@ class Log < ActiveRecord::Base
   after_save :parse_mods, :calculate_counts
 
   validates_presence_of :game, :author
-  validate :has_content?
 
   private
     def parse_mods
@@ -35,9 +34,5 @@ class Log < ActiveRecord::Base
 
     def calculate_counts
       Log.update_all({:mod_count => mods.count, :mod_component_count => mod_components.count}, {:id => id})
-    end
-
-    def has_content?
-      errors.add(:content_file, 'can\'t be blank') if content.blank?
     end
 end

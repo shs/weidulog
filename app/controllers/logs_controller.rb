@@ -43,13 +43,13 @@ class LogsController < ApplicationController
 
   def create
     @log = Log.new(params[:log])
+    @log.content ||= LogContent.new
 
     respond_to do |format|
       if verify_recaptcha(:model => @log) && @log.save
         format.html { redirect_to(@log, :notice => 'Log was successfully created.') }
         format.xml  { render :xml => @log, :status => :created, :location => @log }
       else
-        @log.content = LogContent.new
         format.html { render :action => "new" }
         format.xml  { render :xml => @log.errors, :status => :unprocessable_entity }
       end
