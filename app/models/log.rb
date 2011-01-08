@@ -1,13 +1,13 @@
 class Log < ActiveRecord::Base
   belongs_to :game
   has_one :content, :class_name => 'LogContent'
-  has_and_belongs_to_many :mods
-  has_and_belongs_to_many :mod_components, :class_name => 'Mod::Component'
+  has_and_belongs_to_many :mods, :counter_cache => :mod_count
+  has_and_belongs_to_many :mod_components, :class_name => 'Mod::Component', :counter_cache => :mod_component_count
   has_and_belongs_to_many :mod_versions, :class_name => 'Mod::Version'
 
   accepts_nested_attributes_for :content
 
-  after_save :parse_mods, :calculate_counts
+  after_save :parse_mods
 
   validates_presence_of :game, :author
 
@@ -30,9 +30,5 @@ class Log < ActiveRecord::Base
           mod_versions   << version   unless mod_version_ids.include?(version.id)
         end
       end
-    end
-
-    def calculate_counts
-      Log.update_all({:mod_count => mods.count, :mod_component_count => mod_components.count}, {:id => id})
     end
 end
