@@ -1,7 +1,7 @@
 %h1 Upload log
 = form_for @log, :html => {:multipart => true} do |f|
   - if @log.errors.any?
-    #error
+    #errors
       %h2 #{pluralize(@log.errors.count, "error")} prohibited this log from being saved:
       %ul
         - @log.errors.full_messages.each do |msg|
