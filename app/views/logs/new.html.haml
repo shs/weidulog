@@ -11,7 +11,7 @@
   #up_left
     %h2 Select log...
     = f.fields_for :content do |ff|
-      %p #{ff.file_field :body}
+      %p #{ff.file_field :file}
     %p #{f.label :game_id, 'Game'}: #{f.select :game_id, Game.all.map{|g| [g.name, g.id]}, :include_blank => true}
     %p #{f.label :author}: #{f.text_field :author}
   #up_bottom
